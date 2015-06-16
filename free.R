@@ -1,14 +1,4 @@
-library(ggplot2)
-##Tema
-science_theme = theme(panel.grid.major = element_line(size = 0.5, 
-                                                      color = "grey"), 
-                      axis.line = element_line(size = 0.7, 
-                                               color = "black"), 
-                      legend.position = c(0.85,0.7), 
-                      text = element_text(size = 14),
-                      axis.ticks=element_blank(),
-                      axis.text=element_blank())+
-        theme_bw(base_size = 12, base_family = "Helvetica") 
+
 
 ##Función fi
 fifunction <- function(y,ro){
@@ -43,4 +33,6 @@ graphicfiy <- function(ro,file){
 ##Grafica fi(y) con valores de ro diferentes
 graphicfiy(1.3,"ThesisICE/images/chapter5/romore.pdf")
 graphicfiy(0.4,"ThesisICE/images/chapter5/roless.pdf")
+
+
 
