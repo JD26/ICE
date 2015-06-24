@@ -1,0 +1,14 @@
+digraph G {
+graph [bgcolor = "transparent", size = "18!,18!", nodesep="3", ranksep="1", rankdir="LR"];
+node [fixedsize=true, fontname="Sans", fontsize="76.85", shape=circle, height="2", width="2", style="setlinewidth(4)"];
+edge [style="setlinewidth(3)", arrowsize=3];
+		x [color=""];
+				x -> y [color="", dir=both];
+		y [color=""];
+				y -> z [color="", dir=both];
+		z [color=""];
+				z -> x [color="", dir=both, arrowtail=odot];
+labelloc="b";
+label="Mutualismo y Sub-PP";
+fontsize=40;
+}
