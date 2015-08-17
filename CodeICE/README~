@@ -1,0 +1,8 @@
+DESCRIPTION
+
+FILES:
+namefile.hpp Code in C++.
+inter_namefile.R Interface in R.
+
+RUN CODE:
+g++ test.cpp -o test -O2 -I /home/josue/ICE/software/armadillo-5.300.4/include -DARMA_DONT_USE_WRAPPER -lblas -llapack

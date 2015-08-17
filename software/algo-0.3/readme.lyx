@@ -1,0 +1,224 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 2.15
+\textclass article
+\begin_preamble
+\def\mailto#1{ \href{mailto:#1}{<#1>}}
+\end_preamble
+\language default
+\inputencoding latin1
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Algorithm-Style Package Install and Use
+\newline 
+
+\layout Section
+
+Introduction
+\layout Standard
+
+This package contains files that provide a new textclass and an article
+ layout example that allow to use the algorithm and algorithmic packages
+ directly through LyX without writing latex commands (ERT).
+ The package is to install under your local LyX configuration directory,
+ and LyX must be reconfigured to make the new layout available.
+\newline 
+
+\layout Section
+
+Package content
+\layout Standard
+
+The package algo-<version>, where <version> is the current version number,
+ contains the following files:
+\layout Description
+
+algorithm.inc: algorithm textclass definition, that must be included in any
+ .layout file that needs this text style.
+\layout Description
+
+algolyx.sty: the latex package providing the necessary commands.
+\layout Description
+
+article-algo.layout: document class layout example, taken from the standard
+ article layout, that includes the algorithm.inc definition file to make
+ the new algorithm textclass available.
+\layout Description
+
+algo.lyx: document that describes how to use the new algorithm textclass,
+ and is at the same time an example of document using the article-algo layout.
+ Thus, this document should be viewed once the package is installed.
+\layout Description
+
+algo.{tex,
+\protected_separator 
+ps}: algo.lyx latex or postscript output, for those who are interested in
+ reading the document before or without installing the package.
+\layout Description
+
+lang/: directory containing LyX/ps documents examples using the algorithm
+ style in other languages than english.
+ 
+\layout Description
+
+examples/: directory containing LyX/ps documents examples using some algorithm
+ layout options.
+\newline 
+
+\layout Section
+
+Installing the package
+\layout Standard
+
+To install the package, do as following:
+\layout Enumerate
+
+Gunzip and untar the package under the directory you want:
+\begin_deeper 
+\layout LyX-Code
+
+> gunzip -c algo<version>.tar.gz | tar xvf -
+\end_deeper 
+\layout Enumerate
+
+Copy the textclass definition (.inc) and the document class layout example
+ (.layout) under your local LyX configuration layout directory, that usually
+ is 
+\family typewriter 
+$HOME/.lyx/layouts
+\family default 
+.
+ Check under lyx (
+\family sans 
+\bar under 
+H
+\bar default 
+elp
+\family typewriter 
+->
+\family sans 
+\bar under 
+V
+\bar default 
+ersion
+\family default 
+) your actual user directory.
+\begin_deeper 
+\layout LyX-Code
+
+> cd algo-<version> 
+\newline 
+> cp algorithm.inc article-algo.layout $HOME/.lyx/layouts
+\end_deeper 
+\layout Enumerate
+
+Install 
+\family typewriter 
+algolyx.sty
+\family default 
+ such that its path is seen by LaTeX.
+ You can do as follow:
+\begin_deeper 
+\layout LyX-Code
+
+> mkdir $HOME/.lyx/layouts/packages 
+\newline 
+> cp algolyx.sty $HOME/.lyx/layouts/packages 
+\newline 
+> export TEXINPUTS=:/$HOME/.lyx/layouts/packages//
+\end_deeper 
+\layout Enumerate
+
+Run LyX and reconfigure it using 
+\family sans 
+\bar under 
+O
+\bar default 
+ptions
+\family typewriter 
+->
+\family sans 
+\bar under 
+R
+\bar default 
+econfigure.
+\layout Enumerate
+
+Exit from LyX, and run it again.
+ Once loaded, the new document class 
+\begin_inset Quotes eld
+\end_inset 
+
+Article (algo)
+\begin_inset Quotes erd
+\end_inset 
+
+ should be listed in the 
+\family sans 
+\bar under 
+L
+\bar default 
+ayout
+\family typewriter 
+->
+\family sans 
+\bar under 
+D
+\bar default 
+ocument
+\family default 
+ popup, and if so the install is successfully done.
+\newline 
+
+\layout Section
+
+Using the algorithm textclass
+\layout Standard
+
+The algo.lyx (or algo.tex,ps) document describes how to use the layout.
+\newline 
+
+\layout Section
+
+Thanks
+\layout Standard
+
+Thanks to the users, for their advice, comments, bug reports.
+ And a special thanks to Herbert Voss for his help!
+\newline 
+
+\layout Section
+
+Feedback
+\layout Standard
+
+Please give your comments! It is the only way to efficiently improve the
+ textclass and fix the bugs.
+ You can send e-mail to 
+\newline 
+
+\latex latex 
+
+\backslash 
+mailto{nicolas.marsgui@libertysurf.fr}
+\latex default 
+.
+\the_end

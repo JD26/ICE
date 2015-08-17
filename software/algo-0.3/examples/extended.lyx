@@ -1,0 +1,163 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 2.15
+\textclass article-algo
+\begin_preamble
+\algolang{french}
+\algoption{noend}
+\keycomment{\#<}{>\#}
+\end_preamble
+\language default
+\inputencoding latin1
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Extended use of the Algorithm-Style
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Section
+
+Introduction
+\layout Standard
+
+The purpose of this small file is to test the options and commands that
+ can be used in the preamble.
+ In the document, we cumulate the three available options:
+\layout Itemize
+
+use of noend,
+\layout Itemize
+
+specify a language (only french available),
+\layout Itemize
+
+redefine the comments delimiters, set to #< and >#
+\layout Standard
+
+Moreover, this file checks if some particular features are supported.
+ The tested features are:
+\layout Itemize
+
+use of a very long extra parameter, followed by a comment.
+\layout Itemize
+
+use of a very long state item, followed by a comment.
+\layout Itemize
+
+use of a very long comment after an endif item.
+\layout Itemize
+
+use of a caption at the top of the algorithm float.
+\layout Section
+
+Examples
+\layout Subsection
+
+Comments, long extra parameter, long state line
+\layout Standard
+
+The following algorithm is a small example that should work.
+\layout Algorithm (num)
+
+si something is true.
+ The method to decide wether it is true or not is not very easy.
+ You sould refer to the related section to see how it is managed.#<This is
+ the test comment, but the test is enough long, and there is nothing more
+ to say.># 
+\begin_deeper 
+\layout Algorithm (num)
+
+* action 1
+\end_deeper 
+\layout Algorithm (num)
+
+sinon
+\begin_deeper 
+\layout Algorithm (num)
+
+* action 2
+\layout Algorithm (num)
+
+* action 3 #<comment here>#
+\layout Algorithm (num)
+
+* action that is quite difficult to explain.
+ The explaination wil take several lines in order to show that long state
+ items are allowed.
+ For instance the following formula: 
+\begin_inset Formula \( \frac{\sqrt{\cos (\delta )}}{\sin (\beta )} \)
+\end_inset 
+
+ is needed to explain some things here.#<something to say as extra comment?>#
+\layout Algorithm (num)
+
+* another action.
+\end_deeper 
+\layout Algorithm (num)
+
+finsi #<a comment here could be usefull.
+ Let's do it very long to see whether it is well managed.
+ At the end of this test something should be done to continue...
+ The problem is that 
+\series bold 
+fin si
+\series default 
+ will not appear because of the noend option.>#
+\layout Subsection
+
+Caption at the top
+\layout Standard
+
+The algorithm 
+\begin_inset LatexCommand \ref{alg:top-caption}
+
+\end_inset 
+
+ should work too.
+\layout Standard
+
+\begin_float alg 
+\layout Caption
+
+
+\begin_inset LatexCommand \label{alg:top-caption}
+
+\end_inset 
+
+basic algorithm
+\layout Algorithm (num)
+
+si it is true
+\begin_deeper 
+\layout Algorithm (num)
+
+* do something
+\end_deeper 
+\layout Algorithm (num)
+
+finsi
+\end_float 
+\the_end

@@ -1,0 +1,1308 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 2.15
+\textclass article-algo
+\begin_preamble
+% Language
+% \algolang{french}
+
+% Algorithmic possible option
+% \def\algoption{noend}
+
+% Comments delimiters redefinition
+% \keycomment{\#<}{>\#}
+\end_preamble
+\language default
+\inputencoding latin1
+\fontscheme default
+\graphics default
+\float_placement !h
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Proposal for a LyX Algorithm Style
+\layout Author
+
+Benoît Guillon
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset LatexCommand \listofalgorithms{}
+
+\end_inset 
+
+
+\layout Section
+
+Introduction
+\layout Standard
+
+This file describes the use of a layout that allows to write algorithms
+ without using any LaTeX command in a lyx document.
+ The layout is built in order to fulfill the WYSIWYM principles, and uses
+ the 
+\family sans 
+algorithm
+\family default 
+ and 
+\family sans 
+algorithmic
+\family default 
+ packages.
+\layout Section
+
+Document class
+\layout Standard
+
+The 
+\family typewriter 
+algorithm.inc
+\family default 
+ file contains the Algorithm style definition.
+ To be available in a document class, it must be included in the related
+ layout.
+ The 
+\family typewriter 
+article-algo.layout
+\family default 
+ is an example that supports the Algorithm style.
+ The 
+\family typewriter 
+algorithm.inc
+\family default 
+ file needs the commands provided by the latex package 
+\family typewriter 
+algolyx.sty
+\family default 
+, that must be installed such that LaTeX can find it.
+ When this layout is installed (in the 
+\family typewriter 
+~/.lyx/layout
+\family default 
+ directory), the algolyx.sty package installed, and lyx is reconfigured,
+ the 
+\family typewriter 
+Article
+\protected_separator 
+(algo)
+\family default 
+ class should be available.
+ This is the current class of this document.
+\layout Section
+
+Version
+\layout Standard
+
+The package version detailed in this document is 0.3.
+\layout Section
+
+Using the 
+\family typewriter 
+Algorithm
+\family default 
+ style
+\layout Subsection
+
+Common rules
+\layout Standard
+
+To use the lyx algorithm style, simply select the 
+\family typewriter 
+Algorithm
+\family default 
+ style, and respect the following rules: 
+\layout Itemize
+
+The style is derived from the Description style, and thus the first word
+ of each item has a special meaning.
+ The first word you write (bold typed) must be one of the predefined algorithmic
+ keywords (if, else, etc.).
+ 
+\layout Itemize
+
+If the first word is not a predefined keyword, then it is assimilated to
+ the algorithmic environment 
+\backslash 
+STATE keyword.
+ In this document, the 
+\begin_inset Quotes eld
+\end_inset 
+
+*
+\begin_inset Quotes eld
+\end_inset 
+
+ character is used to define a state item.
+\layout Itemize
+
+For the keywords that need an extra parameter (such as: if, else
+\protected_separator 
+if, until, while), the parameter is considered to be the words following
+ the bold keyword, until a comment starts (detected by a starting comment
+ delimiter), or until the end of the line.
+\layout Itemize
+
+If the item levels are used (only for screen viewing purpose), they must
+ be consistent, i.e.
+ at the end of the algorithm, the depth level must come to zero.
+\layout Subsection
+
+Customising the screen aspect
+\layout Standard
+
+The screen viewing of the algorithms you write can be customised as follow:
+\layout Itemize
+
+Use the item levels to indent the algorithm blocks.
+ Besides the screen aspect, the item levels are not used (see section
+\protected_separator 
+
+\begin_inset LatexCommand \ref{sec:indenting}
+
+\end_inset 
+
+).
+\layout Itemize
+
+Customise the algorithm keywords with your own language keywords (see section
+\protected_separator 
+
+\begin_inset LatexCommand \ref{sec:custom}
+
+\end_inset 
+
+).
+\layout Itemize
+
+Customise the comments delimiters used (see section
+\protected_separator 
+
+\begin_inset LatexCommand \ref{sec:comments}
+
+\end_inset 
+
+).
+\layout Subsection
+
+Customising the output
+\layout Standard
+
+The output result can be customised by:
+\layout Itemize
+
+Using the 
+\family typewriter 
+Algorithm (num)
+\family default 
+ style, to print the algorithm line numbers (see section
+\protected_separator 
+
+\begin_inset LatexCommand \ref{sec:algo-num}
+
+\end_inset 
+
+).
+\layout Itemize
+
+Setting the global option noend, to omit the end statements in the output
+ (see section
+\protected_separator 
+
+\begin_inset LatexCommand \ref{sec:options}
+
+\end_inset 
+
+).
+\layout Itemize
+
+Customising the output algorithm keywords (see section
+\protected_separator 
+
+\begin_inset LatexCommand \ref{sec:custom}
+
+\end_inset 
+
+).
+\layout Subsection
+
+
+\begin_inset LatexCommand \label{sec:indenting}
+
+\end_inset 
+
+Indenting the algorithm
+\layout Standard
+
+The screen algorithm indenting is useful to see directly on the lyx document
+ the algorithm block levels, without exporting it to any output format.
+ However, this feature is optional, and has no influence on the output aspect.
+\layout Standard
+
+Algorithm 
+\begin_inset LatexCommand \ref{alg:without-indent}
+
+\end_inset 
+
+ is an example that does not use the indent capabilities and algorithm 
+\begin_inset LatexCommand \ref{alg:with-indent}
+
+\end_inset 
+
+ uses the indent feature.
+\layout Standard
+
+\begin_float alg 
+\layout Algorithm
+
+if something is true
+\layout Algorithm
+
+* do action 1
+\layout Algorithm
+
+* do action 2
+\layout Algorithm
+
+elseif (something else is true) 
+\layout Algorithm
+
+* perform the specific action
+\layout Algorithm
+
+forall (items in a group)
+\layout Algorithm
+
+* do a special action
+\layout Algorithm
+
+endfor
+\layout Algorithm
+
+repeat
+\layout Algorithm
+
+* run action 3 
+\layout Algorithm
+
+until (everything is done)
+\layout Algorithm
+
+else
+\layout Algorithm
+
+loop
+\layout Algorithm
+
+* we are sticked here
+\layout Algorithm
+
+endloop
+\layout Algorithm
+
+endif
+\layout Caption
+
+
+\begin_inset LatexCommand \label{alg:without-indent}
+
+\end_inset 
+
+Example without (screen) indentation
+\end_float 
+\layout Standard
+
+\begin_float alg 
+\layout Algorithm
+
+Require: a pre-condition must be met
+\layout Algorithm
+
+Ensure: the algorithm output consistency
+\layout Algorithm
+
+if (something is true)
+\begin_deeper 
+\layout Algorithm
+
+* do action 1
+\layout Algorithm
+
+* do action 2
+\end_deeper 
+\layout Algorithm
+
+elseif (something else is true)
+\begin_deeper 
+\layout Algorithm
+
+* perform the specific action
+\layout Algorithm
+
+repeat {comment here}
+\begin_deeper 
+\layout Algorithm
+
+* run action 3
+\end_deeper 
+\layout Algorithm
+
+until (everything is done)
+\end_deeper 
+\layout Algorithm
+
+else
+\begin_deeper 
+\layout Algorithm
+
+* do action 4
+\layout Algorithm
+
+if (another thing is true)
+\begin_deeper 
+\layout Algorithm
+
+for 
+\begin_inset Formula \( (i=0;\, i<10;\, i++) \)
+\end_inset 
+
+
+\begin_deeper 
+\layout Algorithm
+
+* process the iteration
+\end_deeper 
+\layout Algorithm
+
+endfor
+\layout Algorithm
+
+while (it stills true)
+\begin_deeper 
+\layout Algorithm
+
+* run action 5
+\end_deeper 
+\layout Algorithm
+
+endwhile
+\end_deeper 
+\layout Algorithm
+
+endif
+\end_deeper 
+\layout Algorithm
+
+endif
+\layout Caption
+
+
+\begin_inset LatexCommand \label{alg:with-indent}
+
+\end_inset 
+
+Example with (screen) indentation
+\end_float 
+ 
+\layout Subsection
+
+
+\begin_inset LatexCommand \label{sec:comments}
+
+\end_inset 
+
+Using comments
+\layout Standard
+
+Comments can be defined when enclosed in the appopriate delimiters, placed
+ after the bold keyword and its extra parameter.
+ Such as for the original algorithmic commands, comments are supported for
+ the following keywords: if, elseif, else, while, for, forall, repeat and
+ loop.
+ In addition the layout allows to put comments after endif, endfor, endwhile,
+ untill and endloop.
+\layout Standard
+
+A comment can be on several lines, but in any case the closing comment delimiter
+ must be the last word of an item.
+ For example, the following line causes the layout to fail:
+\layout Description
+
+if here is the extra parameter {this is the comment} unexpected words here!!
+\layout Standard
+
+The following is expected:
+\layout Description
+
+if here is the extra parameter {the comment ends the line}
+\layout Standard
+
+By default, the comments delimiters are 
+\begin_inset Quotes eld
+\end_inset 
+
+{
+\begin_inset Quotes eld
+\end_inset 
+
+ and 
+\begin_inset Quotes eld
+\end_inset 
+
+}
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ These are the delimiters used in this document.
+ The delimiters can be redefined by using the following latex command in
+ the preamble:
+\layout LyX-Code
+
+
+\backslash 
+keycomment{<begin>}{<end>}
+\layout Standard
+
+The delimiters can be either a single character or several characters, but
+ cannot be defined through macros.
+ For instance, the following does not work:
+\layout LyX-Code
+
+
+\backslash 
+def
+\backslash 
+begincom{
+\backslash 
+#<}
+\layout LyX-Code
+
+
+\backslash 
+def
+\backslash 
+endcom{>
+\backslash 
+#}
+\layout LyX-Code
+
+
+\backslash 
+keycomment{
+\backslash 
+begincom}{
+\backslash 
+endcom}
+\layout Standard
+
+The following works:
+\layout LyX-Code
+
+
+\backslash 
+keycomment{
+\backslash 
+#<}{>
+\backslash 
+#}
+\layout Standard
+
+Algorithm 
+\begin_inset LatexCommand \ref{alg:with-comments}
+
+\end_inset 
+
+ is an example using comments.
+\layout Standard
+
+\begin_float alg 
+\layout Algorithm
+
+repeat {first comment}
+\begin_deeper 
+\layout Algorithm
+
+if something true {second comment}
+\begin_deeper 
+\layout Algorithm
+
+* action 1 {third comment} 
+\end_deeper 
+\layout Algorithm
+
+elseif something else is true {fourth comment}
+\begin_deeper 
+\layout Algorithm
+
+* action 2 {fifth comment}
+\layout Algorithm
+
+for 
+\begin_inset Formula \( (i=0;\, i<max;\, i++) \)
+\end_inset 
+
+ {iterations to do}
+\begin_deeper 
+\layout Algorithm
+
+* action 3
+\end_deeper 
+\layout Algorithm
+
+endfor {
+\begin_inset Formula \( max \)
+\end_inset 
+
+ is reached now}
+\end_deeper 
+\layout Algorithm
+
+else {sixth comment}
+\begin_deeper 
+\layout Algorithm
+
+* last possible action
+\layout Algorithm
+
+loop {seventh comment}
+\begin_deeper 
+\layout Algorithm
+
+* let's stay here {another comment}
+\layout Algorithm
+
+while a condition is met {does it need a comment?}
+\begin_deeper 
+\layout Algorithm
+
+* action 3 {this comment is very long in order to show the very-long-comment
+ support.
+ Whatever long the comment is, no word should be written after the closing
+ comment delimiter.} 
+\end_deeper 
+\layout Algorithm
+
+endwhile {now the condition is not met anymore}
+\layout Algorithm
+
+forall items in a group {too many comments}
+\begin_deeper 
+\layout Algorithm
+
+* do something for the item
+\end_deeper 
+\layout Algorithm
+
+endfor 
+\end_deeper 
+\layout Algorithm
+
+endloop {end of loop}
+\end_deeper 
+\layout Algorithm
+
+endif {end of the testing block}
+\end_deeper 
+\layout Algorithm
+
+until it is still true {the big loop condition}
+\layout Caption
+
+
+\begin_inset LatexCommand \label{alg:with-comments}
+
+\end_inset 
+
+Example with comments
+\end_float 
+\layout Subsection
+
+Safety
+\layout Standard
+
+Because the lyx users are not supposed to know accurately the latex algorithmic
+ command syntax, the layout is built in order to be as safe as possible,
+ by forgetting the unexpected words to avoid latex errors.
+\layout Standard
+
+The unexpected words are suppressed as follow:
+\layout Itemize
+
+A bold keyword not recognised is considered to be a state item definition,
+ and does not appear to the output.
+\layout Itemize
+
+For keywords without an extra parameter that support comments (else) the
+ characters between the keyword and the valid comment are suppressed.
+\layout Standard
+
+Here is an example containing unexpected characters.
+ Check the difference between what you see on the screen and what is produced
+ to the output.
+\layout Algorithm
+
+if it is true {but is it?}
+\begin_deeper 
+\layout Algorithm
+
+* do the right action {a comment here} 
+\end_deeper 
+\layout Algorithm
+
+else bla bla bla {here is the real comment} 
+\begin_deeper 
+\layout Algorithm
+
+* do the other action
+\end_deeper 
+\layout Algorithm
+
+endif bla bla too {ending comment!} 
+\layout Subsection
+
+
+\begin_inset LatexCommand \label{sec:algo-num}
+
+\end_inset 
+
+The 
+\family typewriter 
+Algorithm (num)
+\family default 
+ style
+\layout Standard
+
+This style is derived from 
+\family typewriter 
+Algorithm
+\family default 
+, and has no behavioural difference.
+ This style allows to produce algorithms with line numbers.
+ Algorithm 
+\begin_inset LatexCommand \ref{alg:algo-num}
+
+\end_inset 
+
+ is an example using this style.
+\layout Standard
+
+\begin_float alg 
+\layout Algorithm (num)
+
+* first thing to do
+\layout Algorithm (num)
+
+* second thing to do
+\layout Algorithm (num)
+
+if it is true {we hope so}
+\begin_deeper 
+\layout Algorithm (num)
+
+* action 1
+\end_deeper 
+\layout Algorithm (num)
+
+else {other possibility}
+\begin_deeper 
+\layout Algorithm (num)
+
+* action 2
+\end_deeper 
+\layout Algorithm (num)
+
+endif
+\layout Caption
+
+
+\begin_inset LatexCommand \label{alg:algo-num}
+
+\end_inset 
+
+Algorithm with line numbers
+\end_float 
+\layout Section
+
+
+\begin_inset LatexCommand \label{sec:options}
+
+\end_inset 
+
+Options setting
+\layout Standard
+
+The 
+\family sans 
+algorithm
+\family default 
+ package options are not supported by the layout, because it is an internal
+ LyX stuff (algorithm floats).
+ The single 
+\family sans 
+algorithmic
+\family default 
+ package option (
+\family typewriter 
+noend
+\family default 
+) is supported by the layout.
+ It can be set by writing the following in the latex preamble:
+\layout LyX-Code
+
+
+\backslash 
+algoption{noend}
+\layout Section
+
+
+\begin_inset LatexCommand \label{sec:custom}
+
+\end_inset 
+
+Customisation
+\layout Standard
+
+The lyx algorithm style can be used in another language by:
+\layout Itemize
+
+redefining by hand in the latex preamble all the commands used by the algorithm
+ style, when the language translation is not directly supported or doesn't
+ match your need,
+\layout Itemize
+
+specifying the language to support, if the language translation is available.
+\layout Subsection
+
+Full macro redefinition
+\layout Subsubsection
+
+Screen keywords
+\layout Standard
+
+It deals with the words written in the lyx document, and that appears on
+ the screen.
+ In the document, the tokens that define 
+\backslash 
+IF, 
+\backslash 
+ELSE, etc.
+ used in the algorithms are 
+\begin_inset Quotes eld
+\end_inset 
+
+if
+\begin_inset Quotes erd
+\end_inset 
+
+, 
+\begin_inset Quotes eld
+\end_inset 
+
+else
+\begin_inset Quotes erd
+\end_inset 
+
+, etc.
+ These are redefinable macros.
+ Their default definitions are:
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyif}{if} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyelseif}{elseif} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyelse}{else} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyendif}{endif} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyfor}{for} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keywhile}{while} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyrepeat}{repeat} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyuntil}{until} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyendfor}{endfor} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyendwhile}{endwhile}
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyloop}{loop} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyendloop}{endloop} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyrequire}{Require:} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+keyensure}{Ensure:}
+\layout Subsubsection
+
+Output keywords
+\layout Standard
+
+To customise the algorithm words to the output, redefine the algorithmic
+ environment macros.
+ The default definitions of these macros are:
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicrequire}{
+\backslash 
+textbf{Require:}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicensure}{
+\backslash 
+textbf{Ensure:}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmiccomment}[1]{
+\backslash 
+{#1
+\backslash 
+}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicend}{
+\backslash 
+textbf{end}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicif}{
+\backslash 
+textbf{if}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicthen}{
+\backslash 
+textbf{then}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicelse}{
+\backslash 
+textbf{else}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicelsif}{
+\backslash 
+algorithmicelse
+\backslash 
+ 
+\backslash 
+algorithmicif} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicendif}{
+\backslash 
+algorithmicend
+\backslash 
+ 
+\backslash 
+algorithmicif} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicfor}{
+\backslash 
+textbf{for}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicforall}{
+\backslash 
+textbf{for all}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicdo}{
+\backslash 
+textbf{do}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicendfor}{
+\backslash 
+algorithmicend
+\backslash 
+ 
+\backslash 
+algorithmicfor} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicwhile}{
+\backslash 
+textbf{while}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicendwhile}{
+\backslash 
+algorithmicend
+\backslash 
+ 
+\backslash 
+algorithmicwhile} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicloop}{
+\backslash 
+textbf{loop}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicendloop}{
+\backslash 
+algorithmicend
+\backslash 
+ 
+\backslash 
+algorithmicloop} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicrepeat}{
+\backslash 
+textbf{repeat}} 
+\layout LyX-Code
+
+
+\backslash 
+newcommand{
+\backslash 
+algorithmicuntil}{
+\backslash 
+textbf{until}}
+\layout Subsection
+
+Language support
+\layout Standard
+
+Some languages are directly supported by the algorithm style.
+ To specify the language to use enter the following command in the LaTeX
+ preample:
+\layout LyX-Code
+
+
+\backslash 
+algolang{<language>}
+\layout Standard
+
+At the moment the available languages are:
+\layout Itemize
+
+french
+\layout Section
+
+Using the algorithm style in other document layouts
+\layout Standard
+
+To make the algorithm textclass available in another document class layout
+ than article-algo, you just need to do as follow:
+\layout Enumerate
+
+Copy the layout to enrich in your local configuration layout directory.
+ Example that customises the report layout:
+\begin_deeper 
+\layout LyX-Code
+
+> cp /usr/local/share/lyx/layouts/report.layout 
+\backslash 
+
+\newline 
+
+\protected_separator 
+ 
+\protected_separator 
+ 
+\protected_separator 
+$HOME/.lyx/layouts/report-algo.layout
+\end_deeper 
+\layout Enumerate
+
+Edit the copied layout, and: 
+\begin_deeper 
+\layout Enumerate
+
+Change the the first line:
+\begin_deeper 
+\layout LyX-Code
+
+# 
+\backslash 
+DeclareLaTeXClass[report]{report (algo)}
+\end_deeper 
+\layout Enumerate
+
+Add the following lines:
+\begin_deeper 
+\layout LyX-Code
+
+# Input lyx algorithm definitions 
+\newline 
+Input algorithm.inc
+\end_deeper 
+\end_deeper 
+\layout Enumerate
+
+Save the new layout, and reconfigure lyx to make the new layout available.
+\layout Section
+
+Changes
+\layout Standard
+
+Differences between the current release and the previous one (0.2):
+\layout Itemize
+
+Comments after endif, endfor, endwhile, endloop, untill are now supported.
+ 
+\layout Itemize
+
+The package definition is splitted in two files: 
+\family typewriter 
+algolyx.sty
+\family default 
+ provides all the latex commands, and 
+\family typewriter 
+algorithm.inc
+\family default 
+ provides the new LyX styles.
+\layout Itemize
+
+Long items (i.e.
+ on several lines) are now supported.
+ It includes state items, and items using an extra parameter.
+\layout Itemize
+
+No words must be written after a closing comment.
+ This new constraint seems to be acceptable, and is a condition to have
+ long items available.
+\layout Itemize
+
+The comments delimiters can be redefined (by using 
+\family typewriter 
+
+\backslash 
+keycomment
+\family default 
+ in the preamble).
+\layout Itemize
+
+The global algorithmic option noend is supported (by using 
+\family typewriter 
+
+\backslash 
+algoption
+\family default 
+ in the preamble).
+\layout Itemize
+
+Line numbering in algorithms is available by using the Algorithm (num) style.
+\layout Standard
+
+Differences between version 0.2 and release 0.1:
+\layout Itemize
+
+Some languages translations are supported.
+\layout Itemize
+
+The typewriter font previously used to display algorithms is removed: it
+ is not useful, and it makes algorithms too big on screen.
+\layout Standard
+
+Differences between version 0.1 and the beta version:
+\layout Itemize
+
+The commands are more robust: unexpected words are simply lost (not shown
+ to the output).
+\layout Itemize
+
+The extra parameters (for: if, for, while, etc.) do not need to be enclosed
+ in parenthesis anymore.
+\layout Itemize
+
+The require, ensure, loop, endloop forall keywords are now supported.
+\layout Itemize
+
+Comments are supported.
+\layout Section
+
+Limitations -- Bugs
+\layout Standard
+
+This LyX algorithm style has (at least) the following limitations:
+\layout Itemize
+
+The line numbering interval is hard coded to 1, for the 
+\family typewriter 
+Algorithm (num)
+\family default 
+ style.
+ It means that every line number is printed.
+ There is no user option to change this.
+\layout Itemize
+
+Using a list environment (itemize, description, etc.) in an algorithm does
+ not work.
+\layout Itemize
+
+The 
+\family sans 
+algorithm
+\family default 
+ options are not supported.
+\the_end

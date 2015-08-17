@@ -1,0 +1,178 @@
+%% LyX 1.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[french]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{babel}
+\usepackage{algorithm}
+
+\makeatletter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ \usepackage{algolyx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\algolang{french}
+
+\makeatother
+
+\begin{document}
+
+
+\title{Algorithmes en français}
+
+
+\author{Benoît Guillon}
+
+\maketitle
+\tableofcontents{}
+
+\listofalgorithms{}
+
+
+\section{Présentation}
+
+Ce court document est un exemple et un test du style Algorithm utilisé en mode
+français (french).
+
+
+\section{Définitions par défaut}
+
+En mode français, la correspondance entre l'expression logique attendue, ce
+qu'il faut écrire, et la sortie est donnée par le tableau suivant.
+
+\vspace{0.3cm}
+{\centering \begin{tabular}{|c|c|c|}
+\hline 
+Expression logique&
+Expression dans le document&
+Sortie produite\\
+\hline 
+\hline 
+si&
+\textbf{si}&
+\textbf{si} ... \textbf{alors}\\
+\hline 
+sinon&
+\textbf{sinon}&
+\textbf{sinon}\\
+\hline 
+sinon si&
+\textbf{sinonsi}&
+\textbf{sinon si} ... \textbf{alors}\\
+\hline 
+fin si&
+\textbf{finsi}&
+\textbf{fin si}\\
+\hline 
+tant que&
+\textbf{tantque}&
+\textbf{tant que} ... \textbf{faire}\\
+\hline 
+fin tant que&
+\textbf{fintantque}&
+\textbf{fin tant que}\\
+\hline 
+pour&
+\textbf{pour}&
+\textbf{pour} ... \textbf{faire}\\
+\hline 
+fin pour&
+\textbf{finpour}&
+\textbf{fin pour}\\
+\hline 
+répéter&
+\textbf{répéter}&
+\textbf{répéter}\\
+\hline 
+jusqu'à&
+\textbf{jusqu'à}&
+\textbf{jusqu'à}\\
+\hline 
+pour tout&
+\textbf{pourtout}&
+\textbf{pour tout} ... \textbf{faire}\\
+\hline 
+boucle infinie&
+\textbf{boucle}&
+\textbf{boucle}\\
+\hline 
+fin boucle&
+\textbf{finboucle}&
+\textbf{fin boucle}\\
+\hline 
+Contexte&
+\textbf{Contexte}&
+\textbf{Contexte~:}\\
+\hline 
+Vérifier&
+\textbf{Vérifier}&
+\textbf{Vérifier~:}\\
+\hline 
+\end{tabular}\par}
+\vspace{0.3cm}
+
+
+\section{Exemple}
+
+L'algorithme \ref{alg:exemple} est un exemple d'algorithme en mode français.
+
+\begin{algorithm}
+\begin{algor}
+\item [Contexte]condition de départ
+\item [Vérifier]chose à vérifier en sortie
+\item [si]cela est vrai
+
+\begin{algor}
+\item [{*}]action 1
+\item [pour]10 itérations
+
+\begin{algor}
+\item [{*}]action 2
+\end{algor}
+\item [finpour]~
+\item [répéter]~
+
+\begin{algor}
+\item [{*}]action 3
+\end{algor}
+\item [jusqu'à]ce que ce soit faux
+\end{algor}
+\item [sinonsi]autre chose
+
+\begin{algor}
+\item [tantque]ce test est vrai
+
+\begin{algor}
+\item [{*}]itération supplémentaire
+\end{algor}
+\item [fintantque]~
+\item [pourtout]les éléments
+
+\begin{algor}
+\item [{*}]action 4
+\end{algor}
+\item [finpour]~
+\end{algor}
+\item [sinon]~
+
+\begin{algor}
+\item [boucle]~
+
+\begin{algor}
+\item [{*}]on reste ici
+\end{algor}
+\item [finboucle]~
+\end{algor}
+\item [finsi]~
+\end{algor}
+
+\caption{\label{alg:exemple}Algorithme en mode français}
+\end{algorithm}
+
+
+\end{document}

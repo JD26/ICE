@@ -1,0 +1,568 @@
+%% LyX 1.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{algorithm}
+
+\makeatletter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ \newenvironment{lyxcode}
+   {\begin{list}{}{
+     \setlength{\rightmargin}{\leftmargin}
+     \raggedright
+     \setlength{\itemsep}{0pt}
+     \setlength{\parsep}{0pt}
+     \verbatim@font}%
+    \item[]}
+   {\end{list}}
+ \usepackage{algolyx}
+ \usepackage{algolyx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% Language
+% \algolang{french}
+
+% Algorithmic possible option
+% \def\algoption{noend}
+
+% Comments delimiters redefinition
+% \keycomment{\#<}{>\#}
+
+\makeatother
+
+\begin{document}
+
+
+\title{Proposal for a \LyX{} Algorithm Style}
+
+
+\author{Benoît Guillon}
+
+\maketitle
+\tableofcontents{}
+
+\listofalgorithms{}
+
+
+\section{Introduction}
+
+This file describes the use of a layout that allows to write algorithms without
+using any \LaTeX{} command in a lyx document. The layout is built in order to
+fulfill the WYSIWYM principles, and uses the \textsf{algorithm} and \textsf{algorithmic}
+packages.
+
+
+\section{Document class}
+
+The \texttt{algorithm.inc} file contains the Algorithm style definition. To
+be available in a document class, it must be included in the related layout.
+The \texttt{article-algo.layout} is an example that supports the Algorithm style.
+The \texttt{algorithm.inc} file needs the commands provided by the latex package
+\texttt{algolyx.sty}, that must be installed such that \LaTeX{} can find it.
+When this layout is installed (in the \texttt{\textasciitilde{}/.lyx/layout}
+directory), the algolyx.sty package installed, and lyx is reconfigured, the
+\texttt{Article~(algo)} class should be available. This is the current class
+of this document.
+
+
+\section{Version}
+
+The package version detailed in this document is 0.3.
+
+
+\section{Using the \texttt{Algorithm} style}
+
+
+\subsection{Common rules}
+
+To use the lyx algorithm style, simply select the \texttt{Algorithm} style,
+and respect the following rules: 
+
+\begin{itemize}
+\item The style is derived from the Description style, and thus the first word of
+each item has a special meaning. The first word you write (bold typed) must
+be one of the predefined algorithmic keywords (if, else, etc.). 
+\item If the first word is not a predefined keyword, then it is assimilated to the
+algorithmic environment \textbackslash{}STATE keyword. In this document, the
+``{*}`` character is used to define a state item.
+\item For the keywords that need an extra parameter (such as: if, else~if, until,
+while), the parameter is considered to be the words following the bold keyword,
+until a comment starts (detected by a starting comment delimiter), or until
+the end of the line.
+\item If the item levels are used (only for screen viewing purpose), they must be
+consistent, i.e. at the end of the algorithm, the depth level must come to zero.
+\end{itemize}
+
+\subsection{Customising the screen aspect}
+
+The screen viewing of the algorithms you write can be customised as follow:
+
+\begin{itemize}
+\item Use the item levels to indent the algorithm blocks. Besides the screen aspect,
+the item levels are not used (see section~\ref{sec:indenting}).
+\item Customise the algorithm keywords with your own language keywords (see section~\ref{sec:custom}).
+\item Customise the comments delimiters used (see section~\ref{sec:comments}).
+\end{itemize}
+
+\subsection{Customising the output}
+
+The output result can be customised by:
+
+\begin{itemize}
+\item Using the \texttt{Algorithm (num)} style, to print the algorithm line numbers
+(see section~\ref{sec:algo-num}).
+\item Setting the global option noend, to omit the end statements in the output (see
+section~\ref{sec:options}).
+\item Customising the output algorithm keywords (see section~\ref{sec:custom}).
+\end{itemize}
+
+\subsection{\label{sec:indenting}Indenting the algorithm}
+
+The screen algorithm indenting is useful to see directly on the lyx document
+the algorithm block levels, without exporting it to any output format. However,
+this feature is optional, and has no influence on the output aspect.
+
+Algorithm \ref{alg:without-indent} is an example that does not use the indent
+capabilities and algorithm \ref{alg:with-indent} uses the indent feature.
+
+\begin{algorithm}
+\begin{algor}
+\item [if]something is true
+\item [{*}]do action 1
+\item [{*}]do action 2
+\item [elseif](something else is true) 
+\item [{*}]perform the specific action
+\item [forall](items in a group)
+\item [{*}]do a special action
+\item [endfor]~
+\item [repeat]~
+\item [{*}]run action 3 
+\item [until](everything is done)
+\item [else]~
+\item [loop]~
+\item [{*}]we are sticked here
+\item [endloop]~
+\item [endif]~
+\end{algor}
+
+\caption{\label{alg:without-indent}Example without (screen) indentation}
+\end{algorithm}
+
+
+\begin{algorithm}
+\begin{algor}
+\item [Require:]a pre-condition must be met
+\item [Ensure:]the algorithm output consistency
+\item [if](something is true)
+
+\begin{algor}
+\item [{*}]do action 1
+\item [{*}]do action 2
+\end{algor}
+\item [elseif](something else is true)
+
+\begin{algor}
+\item [{*}]perform the specific action
+\item [repeat]\{comment here\}
+
+\begin{algor}
+\item [{*}]run action 3
+\end{algor}
+\item [until](everything is done)
+\end{algor}
+\item [else]~
+
+\begin{algor}
+\item [{*}]do action 4
+\item [if](another thing is true)
+
+\begin{algor}
+\item [for]\( (i=0;\, i<10;\, i++) \)
+
+\begin{algor}
+\item [{*}]process the iteration
+\end{algor}
+\item [endfor]~
+\item [while](it stills true)
+
+\begin{algor}
+\item [{*}]run action 5
+\end{algor}
+\item [endwhile]~
+\end{algor}
+\item [endif]~
+\end{algor}
+\item [endif]~
+\end{algor}
+
+\caption{\label{alg:with-indent}Example with (screen) indentation}
+\end{algorithm}
+ 
+
+
+\subsection{\label{sec:comments}Using comments}
+
+Comments can be defined when enclosed in the appopriate delimiters, placed after
+the bold keyword and its extra parameter. Such as for the original algorithmic
+commands, comments are supported for the following keywords: if, elseif, else,
+while, for, forall, repeat and loop. In addition the layout allows to put comments
+after endif, endfor, endwhile, untill and endloop.
+
+A comment can be on several lines, but in any case the closing comment delimiter
+must be the last word of an item. For example, the following line causes the
+layout to fail:
+
+\begin{description}
+\item [if]here is the extra parameter \{this is the comment\} unexpected words here!!
+\end{description}
+The following is expected:
+
+\begin{description}
+\item [if]here is the extra parameter \{the comment ends the line\}
+\end{description}
+By default, the comments delimiters are ``\{`` and ``\}''. These are the
+delimiters used in this document. The delimiters can be redefined by using the
+following latex command in the preamble:
+
+\begin{lyxcode}
+\textbackslash{}keycomment\{<begin>\}\{<end>\}
+\end{lyxcode}
+The delimiters can be either a single character or several characters, but cannot
+be defined through macros. For instance, the following does not work:
+
+\begin{lyxcode}
+\textbackslash{}def\textbackslash{}begincom\{\textbackslash{}\#<\}
+
+\textbackslash{}def\textbackslash{}endcom\{>\textbackslash{}\#\}
+
+\textbackslash{}keycomment\{\textbackslash{}begincom\}\{\textbackslash{}endcom\}
+\end{lyxcode}
+The following works:
+
+\begin{lyxcode}
+\textbackslash{}keycomment\{\textbackslash{}\#<\}\{>\textbackslash{}\#\}
+\end{lyxcode}
+Algorithm \ref{alg:with-comments} is an example using comments.
+
+\begin{algorithm}
+\begin{algor}
+\item [repeat]\{first comment\}
+
+\begin{algor}
+\item [if]something true \{second comment\}
+
+\begin{algor}
+\item [{*}]action 1 \{third comment\} 
+\end{algor}
+\item [elseif]something else is true \{fourth comment\}
+
+\begin{algor}
+\item [{*}]action 2 \{fifth comment\}
+\item [for]\( (i=0;\, i<max;\, i++) \) \{iterations to do\}
+
+\begin{algor}
+\item [{*}]action 3
+\end{algor}
+\item [endfor]\{\( max \) is reached now\}
+\end{algor}
+\item [else]\{sixth comment\}
+
+\begin{algor}
+\item [{*}]last possible action
+\item [loop]\{seventh comment\}
+
+\begin{algor}
+\item [{*}]let's stay here \{another comment\}
+\item [while]a condition is met \{does it need a comment?\}
+
+\begin{algor}
+\item [{*}]action 3 \{this comment is very long in order to show the very-long-comment
+support. Whatever long the comment is, no word should be written after the closing
+comment delimiter.\} 
+\end{algor}
+\item [endwhile]\{now the condition is not met anymore\}
+\item [forall]items in a group \{too many comments\}
+
+\begin{algor}
+\item [{*}]do something for the item
+\end{algor}
+\item [endfor]~
+\end{algor}
+\item [endloop]\{end of loop\}
+\end{algor}
+\item [endif]\{end of the testing block\}
+\end{algor}
+\item [until]it is still true \{the big loop condition\}
+\end{algor}
+
+\caption{\label{alg:with-comments}Example with comments}
+\end{algorithm}
+
+
+
+\subsection{Safety}
+
+Because the lyx users are not supposed to know accurately the latex algorithmic
+command syntax, the layout is built in order to be as safe as possible, by forgetting
+the unexpected words to avoid latex errors.
+
+The unexpected words are suppressed as follow:
+
+\begin{itemize}
+\item A bold keyword not recognised is considered to be a state item definition, and
+does not appear to the output.
+\item For keywords without an extra parameter that support comments (else) the characters
+between the keyword and the valid comment are suppressed.
+\end{itemize}
+Here is an example containing unexpected characters. Check the difference between
+what you see on the screen and what is produced to the output.
+
+\begin{algor}
+\item [if]it is true \{but is it?\}
+
+\begin{algor}
+\item [{*}]do the right action \{a comment here\} 
+\end{algor}
+\item [else]bla bla bla \{here is the real comment\} 
+
+\begin{algor}
+\item [{*}]do the other action
+\end{algor}
+\item [endif]bla bla too \{ending comment!\} 
+\end{algor}
+
+\subsection{\label{sec:algo-num}The \texttt{Algorithm (num)} style}
+
+This style is derived from \texttt{Algorithm}, and has no behavioural difference.
+This style allows to produce algorithms with line numbers. Algorithm \ref{alg:algo-num}
+is an example using this style.
+
+\begin{algorithm}
+\begin{algor}[1]
+\item [{*}]first thing to do
+\item [{*}]second thing to do
+\item [if]it is true \{we hope so\}
+
+\begin{algor}[1]
+\item [{*}]action 1
+\end{algor}
+\item [else]\{other possibility\}
+
+\begin{algor}[1]
+\item [{*}]action 2
+\end{algor}
+\item [endif]~
+\end{algor}
+
+\caption{\label{alg:algo-num}Algorithm with line numbers}
+\end{algorithm}
+
+
+
+\section{\label{sec:options}Options setting}
+
+The \textsf{algorithm} package options are not supported by the layout, because
+it is an internal \LyX{} stuff (algorithm floats). The single \textsf{algorithmic}
+package option (\texttt{noend}) is supported by the layout. It can be set by
+writing the following in the latex preamble:
+
+\begin{lyxcode}
+\textbackslash{}algoption\{noend\}
+\end{lyxcode}
+
+\section{\label{sec:custom}Customisation}
+
+The lyx algorithm style can be used in another language by:
+
+\begin{itemize}
+\item redefining by hand in the latex preamble all the commands used by the algorithm
+style, when the language translation is not directly supported or doesn't match
+your need,
+\item specifying the language to support, if the language translation is available.
+\end{itemize}
+
+\subsection{Full macro redefinition}
+
+
+\subsubsection{Screen keywords}
+
+It deals with the words written in the lyx document, and that appears on the
+screen. In the document, the tokens that define \textbackslash{}IF, \textbackslash{}ELSE,
+etc. used in the algorithms are ``if'', ``else'', etc. These are redefinable
+macros. Their default definitions are:
+
+\begin{lyxcode}
+\textbackslash{}newcommand\{\textbackslash{}keyif\}\{if\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyelseif\}\{elseif\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyelse\}\{else\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyendif\}\{endif\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyfor\}\{for\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keywhile\}\{while\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyrepeat\}\{repeat\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyuntil\}\{until\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyendfor\}\{endfor\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyendwhile\}\{endwhile\}
+
+\textbackslash{}newcommand\{\textbackslash{}keyloop\}\{loop\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyendloop\}\{endloop\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyrequire\}\{Require:\}~
+
+\textbackslash{}newcommand\{\textbackslash{}keyensure\}\{Ensure:\}
+\end{lyxcode}
+
+\subsubsection{Output keywords}
+
+To customise the algorithm words to the output, redefine the algorithmic environment
+macros. The default definitions of these macros are:
+
+\begin{lyxcode}
+\textbackslash{}newcommand\{\textbackslash{}algorithmicrequire\}\{\textbackslash{}textbf\{Require:\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicensure\}\{\textbackslash{}textbf\{Ensure:\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmiccomment\}{[}1{]}\{\textbackslash{}\{\#1\textbackslash{}\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicend\}\{\textbackslash{}textbf\{end\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicif\}\{\textbackslash{}textbf\{if\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicthen\}\{\textbackslash{}textbf\{then\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicelse\}\{\textbackslash{}textbf\{else\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicelsif\}\{\textbackslash{}algorithmicelse\textbackslash{}~\textbackslash{}algorithmicif\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicendif\}\{\textbackslash{}algorithmicend\textbackslash{}~\textbackslash{}algorithmicif\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicfor\}\{\textbackslash{}textbf\{for\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicforall\}\{\textbackslash{}textbf\{for~all\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicdo\}\{\textbackslash{}textbf\{do\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicendfor\}\{\textbackslash{}algorithmicend\textbackslash{}~\textbackslash{}algorithmicfor\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicwhile\}\{\textbackslash{}textbf\{while\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicendwhile\}\{\textbackslash{}algorithmicend\textbackslash{}~\textbackslash{}algorithmicwhile\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicloop\}\{\textbackslash{}textbf\{loop\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicendloop\}\{\textbackslash{}algorithmicend\textbackslash{}~\textbackslash{}algorithmicloop\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicrepeat\}\{\textbackslash{}textbf\{repeat\}\}~
+
+\textbackslash{}newcommand\{\textbackslash{}algorithmicuntil\}\{\textbackslash{}textbf\{until\}\}
+\end{lyxcode}
+
+\subsection{Language support}
+
+Some languages are directly supported by the algorithm style. To specify the
+language to use enter the following command in the \LaTeX{} preample:
+
+\begin{lyxcode}
+\textbackslash{}algolang\{<language>\}
+\end{lyxcode}
+At the moment the available languages are:
+
+\begin{itemize}
+\item french
+\end{itemize}
+
+\section{Using the algorithm style in other document layouts}
+
+To make the algorithm textclass available in another document class layout than
+article-algo, you just need to do as follow:
+
+\begin{enumerate}
+\item Copy the layout to enrich in your local configuration layout directory. Example
+that customises the report layout:
+
+\begin{lyxcode}
+>~cp~/usr/local/share/lyx/layouts/report.layout~\textbackslash{}~\\
+~~~~~\$HOME/.lyx/layouts/report-algo.layout
+\end{lyxcode}
+\item Edit the copied layout, and: 
+
+\begin{enumerate}
+\item Change the the first line:
+
+\begin{lyxcode}
+\#~\textbackslash{}DeclareLaTeXClass{[}report{]}\{report~(algo)\}
+\end{lyxcode}
+\item Add the following lines:
+
+\begin{lyxcode}
+\#~Input~lyx~algorithm~definitions~~\\
+Input~algorithm.inc
+\end{lyxcode}
+\end{enumerate}
+\item Save the new layout, and reconfigure lyx to make the new layout available.
+\end{enumerate}
+
+\section{Changes}
+
+Differences between the current release and the previous one (0.2):
+
+\begin{itemize}
+\item Comments after endif, endfor, endwhile, endloop, untill are now supported. 
+\item The package definition is splitted in two files: \texttt{algolyx.sty} provides
+all the latex commands, and \texttt{algorithm.inc} provides the new \LyX{} styles.
+\item Long items (i.e. on several lines) are now supported. It includes state items,
+and items using an extra parameter.
+\item No words must be written after a closing comment. This new constraint seems
+to be acceptable, and is a condition to have long items available.
+\item The comments delimiters can be redefined (by using \texttt{\textbackslash{}keycomment}
+in the preamble).
+\item The global algorithmic option noend is supported (by using \texttt{\textbackslash{}algoption}
+in the preamble).
+\item Line numbering in algorithms is available by using the Algorithm (num) style.
+\end{itemize}
+Differences between version 0.2 and release 0.1:
+
+\begin{itemize}
+\item Some languages translations are supported.
+\item The typewriter font previously used to display algorithms is removed: it is
+not useful, and it makes algorithms too big on screen.
+\end{itemize}
+Differences between version 0.1 and the beta version:
+
+\begin{itemize}
+\item The commands are more robust: unexpected words are simply lost (not shown to
+the output).
+\item The extra parameters (for: if, for, while, etc.) do not need to be enclosed
+in parenthesis anymore.
+\item The require, ensure, loop, endloop forall keywords are now supported.
+\item Comments are supported.
+\end{itemize}
+
+\section{Limitations -- Bugs}
+
+This \LyX{} algorithm style has (at least) the following limitations:
+
+\begin{itemize}
+\item The line numbering interval is hard coded to 1, for the \texttt{Algorithm (num)}
+style. It means that every line number is printed. There is no user option to
+change this.
+\item Using a list environment (itemize, description, etc.) in an algorithm does not
+work.
+\item The \textsf{algorithm} options are not supported.
+\end{itemize}
+\end{document}

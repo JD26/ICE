@@ -57,6 +57,21 @@ get_arrow <- function(inter){
         if ( identical(inter, c(1, -1)) ){
                 return(", arrowhead=odot")
         }
+        if ( identical(inter, c(-1, 0)) ){
+                return(", arrowtail=odot, arrowhead=none")
+        }
+        if ( identical(inter, c(0, -1)) ){
+                return(", arrowhead=odot, arrowtail=none")
+        }
+        if ( identical(inter, c(1, 0)) ){
+                return(", arrowhead= none")
+        }
+        if ( identical(inter, c(0, 1)) ){
+                return(", arrowtail= none")
+        }
+        if ( identical(inter, c(0, 0)) ){
+                return(", arrowtail= none, arrowhead=none")
+        }
 }
 
 get_arrow_retro <- function(var,retro){
@@ -103,7 +118,7 @@ get_code_dot_1 <- function(retroactions, interactions, ranksep = 1.5){
                       '}' )
 }
 
-get_code_dot_2 <- function(interactions, ranksep = 1.5){
+get_code_dot_2 <- function(interactions, ranksep = 1.5, label =""){
         setences <- c("digraph G {",
                       paste0('graph [bgcolor = "transparent", size = "18!,18!", nodesep="1", ranksep="',ranksep,'", rankdir="LR"];'),
                       'node [fixedsize=true, fontname="Sans", fontsize="76.85", shape=circle, height="2", width="2", style="setlinewidth(4)"];',
@@ -112,6 +127,7 @@ get_code_dot_2 <- function(interactions, ranksep = 1.5){
                       paste0('\t\t\t\tx -> y [color="", dir=both', get_arrow(interactions[1:2]),'];'),
                       '\t\ty [color=""];',
                       paste0('\t\t\t\ty -> z [color="", dir=both', get_arrow(interactions[3:4]),'];'),
+                      ifelse( label == "", "", paste0('labelloc="b";\nlabel="',label,'";\nfontsize=40;') ),
                       '}' )
 }
 
@@ -172,7 +188,7 @@ WriteHijoLyx <- function(ubication, texto = "", file = "code.tex"){
                 "\\end_body",
                 "\\end_document")
         v5 <- c(v1, v2, v3, texto, v4)
-        writeLines(v5,paste0(ubication,"/","code.Lyx"))
+        writeLines(v5,paste0(ubication,"/","code.lyx"))
 }
 plot2 <- function (CM, file = stop("'file' must be specified"), color = "bw") 
 {

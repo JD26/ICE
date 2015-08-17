@@ -1,9 +1,12 @@
+#DESCRIPCION
+#CODIGO QUE IMPLEMENTA EL ALGORITMO PARA MATRICES SIGN
+#ESTABLES. EL ALGORITMO ES DEL LIBRO ... 
 filter0 <- function(A){
         if(det(A) != 0){
-                print("[Paso el filtro 0]")
+                #print("[Paso el filtro 0]")
                 return(TRUE)
         }
-        print("[No pasa el filtro 0]")
+        #print("[No pasa el filtro 0]")
         return(FALSE)
 }
 filter1 <- function(A){
@@ -24,14 +27,14 @@ filter1 <- function(A){
                 return(FALSE)
         }
         if ( kk(A) ){
-                print("[No pasa el filtro 1]")
+                #print("[No pasa el filtro 1]")
                 return(FALSE)
         }
         if ( kj(A) ){
-                print("[No pasa el filtro 1]")
+                #print("[No pasa el filtro 1]")
                 return(FALSE)
         }
-        print("[Paso el filtro 1]")
+        #print("[Paso el filtro 1]")
         return(TRUE)
 }
 filter2 <- function(A){
@@ -94,10 +97,10 @@ filter2 <- function(A){
         }
         
         if (DFS_result(DigA(A)) ){
-                print("[No pasa el filtro 2]")
+                #print("[No pasa el filtro 2]")
                 return(FALSE)
         }
-        print("[Paso el filtro 2]")
+        #print("[Paso el filtro 2]")
         return(TRUE)
 }
 filter3 <- function(A){
@@ -115,7 +118,7 @@ filter3 <- function(A){
                 return(A)
         }
         l <- list(DA = DigA(A), alfa = which(diag(A)!=0))
-        print("[Hizo el cálculo 3]")
+        #print("[Hizo el cálculo 3]")
         return(l)
 }
 filter4 <- function(DA, alfa){        
@@ -136,7 +139,7 @@ filter4 <- function(DA, alfa){
                 alfa <- c(alfa,v)
                 v <- c(1:n)[!(c(1:n) %in% alfa)]
         }
-        print("[Paso por el filtro 4]")
+        #print("[Paso por el filtro 4]")
         return(alfa)        
 }
 filter5 <- function(DA,alfa){
@@ -162,19 +165,19 @@ filter5 <- function(DA,alfa){
         v <- c(1:n)[!(c(1:n) %in% alfa)]
         for (i in v){
                 if (search_w(i, alfa, DA)){
-                        print("[Paso por el filtro 5]")
+                        #print("[Paso por el filtro 5]")
                         return(c(alfa,i))
                 }
         }
-        print("[Paso por el filtro 5]")
+        #print("[Paso por el filtro 5]")
         return(alfa)
 }
 filter6 <- function(alfa,n){
         if (length(alfa) == n){
-                print("[Paso el filtro 6]")
+                #print("[Paso el filtro 6]")
                 return(TRUE)
         }
-        print("[No pasa el filtro 6]")
+        #print("[No pasa el filtro 6]")
         return(FALSE)
 }
 test_sign_stable <- function(A){
@@ -199,6 +202,16 @@ test_sign_stable <- function(A){
         }
 }
 
+test_sign_semi_stable <- function(A){
+        if (!filter1(A)){
+                return(FALSE)
+        }else if (!filter2(A)){
+                return(FALSE)
+        }else{
+                return(TRUE)      
+        } 
+}
 
-M = matrix(c(0,0,-1,-1,0,0,0,-1,1,0,-1,0,1,1,0,0),nrow = 4, byrow = T)
-test_sign_stable(M)
+
+#M = matrix(c(0,0,-1,-1,0,0,0,-1,1,0,-1,0,1,1,0,0),nrow = 4, byrow = T)
+#test_sign_stable(M)

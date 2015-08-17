@@ -1,0 +1,118 @@
+%% LyX 1.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{algorithm}
+
+\makeatletter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+%% Special footnote code from the package 'stblftnt.sty'
+%% Author: Robin Fairbairns -- Last revised Dec 13 1996
+\let\SF@@footnote\footnote
+\def\footnote{\ifx\protect\@typeset@protect
+    \expandafter\SF@@footnote
+  \else
+    \expandafter\SF@gobble@opt
+  \fi
+}
+\expandafter\def\csname SF@gobble@opt \endcsname{\@ifnextchar[%]
+  \SF@gobble@twobracket
+  \@gobble
+}
+\edef\SF@gobble@opt{\noexpand\protect
+  \expandafter\noexpand\csname SF@gobble@opt \endcsname}
+\def\SF@gobble@twobracket[#1]#2{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ \usepackage{algolyx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\algolang{french}
+\algoption{noend}
+\keycomment{\#<}{>\#}
+\makeatother
+
+\begin{document}
+
+
+\title{Extended use of the Algorithm-Style}
+
+\maketitle
+\tableofcontents{}
+
+
+\section{Introduction}
+
+The purpose of this small file is to test the options and commands that can
+be used in the preamble. In the document, we cumulate the three available options:
+
+\begin{itemize}
+\item use of noend,
+\item specify a language (only french available),
+\item redefine the comments delimiters, set to \#< and >\#
+\end{itemize}
+Moreover, this file checks if some particular features are supported. The tested
+features are:
+
+\begin{itemize}
+\item use of a very long extra parameter, followed by a comment.
+\item use of a very long state item, followed by a comment.
+\item use of a very long comment after an endif item.
+\item use of a caption at the top of the algorithm float.
+\end{itemize}
+
+\section{Examples}
+
+
+\subsection{Comments, long extra parameter, long state line}
+
+The following algorithm is a small example that should work.
+
+\begin{algor}[1]
+\item [si]something is true. The method to decide wether it is true or not is not
+very easy. You sould refer to the related section to see how it is managed.\#<This
+is the test comment, but the test is enough long, and there is nothing more
+to say.>\# 
+
+\begin{algor}[1]
+\item [{*}]action 1
+\end{algor}
+\item [sinon]~
+
+\begin{algor}[1]
+\item [{*}]action 2
+\item [{*}]action 3 \#<comment here>\#
+\item [{*}]action that is quite difficult to explain. The explaination wil take several
+lines in order to show that long state items are allowed. For instance the following
+formula: \( \frac{\sqrt{\cos (\delta )}}{\sin (\beta )} \) is needed to explain
+some things here.\#<something to say as extra comment?>\#
+\item [{*}]another action.
+\end{algor}
+\item [finsi]\#<a comment here could be usefull. Let's do it very long to see whether
+it is well managed. At the end of this test something should be done to continue...
+The problem is that \textbf{fin si} will not appear because of the noend option.>\#
+\end{algor}
+
+\subsection{Caption at the top}
+
+The algorithm \ref{alg:top-caption} should work too.
+
+\begin{algorithm}
+
+\caption{\label{alg:top-caption}basic algorithm}
+
+\begin{algor}[1]
+\item [si]it is true
+
+\begin{algor}[1]
+\item [{*}]do something
+\end{algor}
+\item [finsi]~\end{algor}
+\end{algorithm}
+
+
+\end{document}

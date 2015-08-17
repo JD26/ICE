@@ -1,0 +1,51 @@
+# getxbook
+
+getxbook is a collection of tools to download books from Google
+Books' "Book Preview" (getgbook), Amazon's "Look Inside the
+Book" (getabook) and Barnes & Noble's "Book Viewer" (getbnbook).
+
+## why
+
+Online book websites are designed not around reading, but around
+surveillance. It is not merely the selection of book that is
+recorded, but exactly what is read, when, and for how long.
+Forever. And this is linked to all other information the website
+holds about you (which in the case of Google and Amazon is likely
+to be a great deal).
+
+Reading books is a critical component of thinking well, and, by
+extension, of liberty. Surveillance of reading pushes people away
+from exploring unpopular and unorthodox ideas. Limiting and
+monitoring it is a grave act, whether its goal is profit or more
+direct political control. And it is dangerous.
+
+The getxbook program downloads books anonymously. Using it will
+still result in your IP address being logged (use
+[torify](https://www.torproject.org) to stop this), but reading
+habits won't be automatically linked to other personal information
+websites hold, as no existing cookies are used. Once the book is
+downloaded, it can be read without any further prying.
+
+Being free to do what you like with a book, you can also load it
+onto any device you have access to, share it, study it, read it
+offline, and do anything else you can do with normal computer files.
+You can easily use OCR software to get text versions of downloaded
+books, making them accessible to people who can't easily read from
+the page scans.
+
+## technical
+
+Each tool is written in around 200 lines of portable C code, with no
+dependencies beyond libc and network sockets. It should work well on
+Linux, BSDs, OSX and Windows. There is an optional graphical
+interface, built with Tcl/Tk. There are some simple scripts to create
+searchable PDF, DjVu, or plain text files from the downloaded pages,
+which use tesseract OCR software.
+
+## further reading
+
+* [The Case for Book Privacy Parity: Google Books and the Shift from Offline to Online Reading](http://hlpronline.com/2010/05/the-case-for-book-privacy-parity-google-books-and-the-shift-from-offline-to-online-reading/) by Cindy Cohn & Kathryn Hashimoto
+* [The Perils of Social Reading](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2031307) by Neil M. Richards
+* [A Contribution to the Critique of the Political Economy of Google](http://www.uta.edu/huma/agger/fastcapitalism/8_1/fuchs8_1.html) by Christian Fuchs
+* [Google and the Myth of Universal Knowledge](http://yanko.lib.ru/books/internet/google_and_the_myth_of_universal_knowledge-en-l.pdf) by Jean-Noël Jeanneney
+* [The Eternal Value of Privacy](http://www.schneier.com/essay-114.html) by Bruce Schneier

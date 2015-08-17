@@ -1,0 +1,18 @@
+digraph G {
+graph [bgcolor = "transparent", size = "18!,18!", nodesep="1", ranksep="1", rankdir="LR"];
+node [fixedsize=true, fontname="Sans", fontsize="76.85", shape=circle, height="2", width="2", style="setlinewidth(4)"];
+edge [style="setlinewidth(3)", arrowsize=3];
+	X [color="#000000"];
+		X -> Y [color="#000000"];
+		X -> Z [color="#000000"];
+		X -> W [color="#000000"];
+		X -> V [color="#000000"];
+	Y [color=""];
+		Y -> X [color=""];
+	Z [color="#000000"];
+		Z -> X [color="#000000"];
+	W [color=""];
+		W -> X [color=""];
+	V [color="#000000"];
+		V -> X [color="#000000"];
+}

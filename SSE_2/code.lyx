@@ -1,0 +1,238 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass scrbook
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+\begin_body
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+\begin_layout Plain Layout
+\align center
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/1
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/2
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/3
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Newline newline
+\end_inset
+\begin_inset Formula $\,$\end_inset
+\begin_inset Newline newline
+\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/4
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/5
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/6
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Newline newline
+\end_inset
+\begin_inset Formula $\,$\end_inset
+\begin_inset Newline newline
+\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/7
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/8
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/9
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Newline newline
+\end_inset
+\begin_inset Formula $\,$\end_inset
+\begin_inset Newline newline
+\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/10
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/11
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/12
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Newline newline
+\end_inset
+\begin_inset Formula $\,$\end_inset
+\begin_inset Newline newline
+\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/13
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/14
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/15
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Newline newline
+\end_inset
+\begin_inset Formula $\,$\end_inset
+\begin_inset Newline newline
+\end_inset
+
+\begin_inset Graphics
+		filename /home/josue/ICE/SSE_2/16
+		lyxscale 10
+		width 4cm
+		groupId two-species-inter-plot
+\end_inset
+\begin_inset Formula $\quad$\end_inset
+\end_layout
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+\begin_layout Plain Layout
+Interacciones Signo-Semi-Estables.
+\end_layout
+\end_inset
+\end_layout
+\begin_layout Plain Layout
+\end_layout
+\end_inset
+\end_layout
+\end_body
+\end_document

@@ -1,16 +1,20 @@
 library(gtools)
 source('libraryICE.R')
 
-Interac.2.species <- list( Mutualism = c(1,1), 
-                           Predator.Prey = c(-1,1), 
-                           Competition = c(-1,-1))
+Interac.2.species <- list( Mutualism = c(1, 1), 
+                           Predator.Prey = c(-1, 1),
+                           Competition = c(-1, -1),
+                           Amensalismo = c(-1, 0),
+                           Comensalismo = c(0, 1),
+                           Neutralismo = c(0, 0)
+                           )
 #Tambipen podemos ver que se puede expresar como combinación.
 #inter_cases = combinations(n = 2, r = 2, v = c(1,-1), 
 #                           repeats.allowed =TRUE)
 
 #Las retroacciones se pueden expresar como permutaciones
-Retroac.2.species <- permutations(n = 3, r = 2, 
-                                  v = c(0,1,-1), 
+Retroac.2.species <- permutations(n = 2, r = 2, 
+                                  v = c(0,-1), 
                                   repeats.allowed =TRUE)
 
 if ( !file.exists("inter_2")){
@@ -51,7 +55,11 @@ writeLines(generate_code_latex("/home/josue/ICE/inter_retro_2/",names_files),"in
 print(nrow(Retroac.2.species)*3)
 
 
+WriteHijoLyx("/home/josue/ICE/inter_retro_2",
+             "Interacciones no globales sin retroacciones entre tres especies.")
 
+WriteHijoLyx("/home/josue/ICE/inter_2",
+             "Interacciones globales sin retroacciones entre tres especies.")
 
 
 

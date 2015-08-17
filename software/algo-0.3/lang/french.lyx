@@ -1,0 +1,483 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 2.15
+\textclass article-algo
+\begin_preamble
+\algolang{french}
+\end_preamble
+\language french
+\inputencoding latin1
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+Algorithmes en français
+\layout Author
+
+Benoît Guillon
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset LatexCommand \listofalgorithms{}
+
+\end_inset 
+
+
+\layout Section
+
+Présentation
+\layout Standard
+
+Ce court document est un exemple et un test du style Algorithm utilisé en
+ mode français (french).
+\layout Section
+
+Définitions par défaut
+\layout Standard
+
+En mode français, la correspondance entre l'expression logique attendue,
+ ce qu'il faut écrire, et la sortie est donnée par le tableau suivant.
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center \LyXTable
+multicol5
+16 3 0 0 -1 -1 -1 -1
+1 1 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1 1 0 0
+8 1 0 "" ""
+8 1 0 "" ""
+8 1 1 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+0 8 1 0 0 0 0 "" ""
+
+Expression logique
+\newline 
+Expression dans le document
+\newline 
+Sortie produite
+\newline 
+si
+\newline 
+
+\series bold 
+si
+\series default 
+
+\newline 
+
+\series bold 
+si
+\series default 
+ ...
+ 
+\series bold 
+alors
+\series default 
+
+\newline 
+sinon
+\newline 
+
+\series bold 
+sinon
+\series default 
+
+\newline 
+
+\series bold 
+sinon
+\series default 
+
+\newline 
+sinon si
+\newline 
+
+\series bold 
+sinonsi
+\series default 
+
+\newline 
+
+\series bold 
+sinon si
+\series default 
+ ...
+ 
+\series bold 
+alors
+\series default 
+
+\newline 
+fin si
+\newline 
+
+\series bold 
+finsi
+\series default 
+
+\newline 
+
+\series bold 
+fin si
+\series default 
+
+\newline 
+tant que
+\newline 
+
+\series bold 
+tantque
+\series default 
+
+\newline 
+
+\series bold 
+tant que
+\series default 
+ ...
+ 
+\series bold 
+faire
+\series default 
+
+\newline 
+fin tant que
+\newline 
+
+\series bold 
+fintantque
+\series default 
+
+\newline 
+
+\series bold 
+fin tant que
+\series default 
+
+\newline 
+pour
+\newline 
+
+\series bold 
+pour
+\series default 
+
+\newline 
+
+\series bold 
+pour
+\series default 
+ ...
+ 
+\series bold 
+faire
+\series default 
+
+\newline 
+fin pour
+\newline 
+
+\series bold 
+finpour
+\series default 
+
+\newline 
+
+\series bold 
+fin pour
+\series default 
+
+\newline 
+répéter
+\newline 
+
+\series bold 
+répéter
+\series default 
+
+\newline 
+
+\series bold 
+répéter
+\series default 
+
+\newline 
+jusqu'à
+\newline 
+
+\series bold 
+jusqu'à
+\series default 
+
+\newline 
+
+\series bold 
+jusqu'à
+\series default 
+
+\newline 
+pour tout
+\newline 
+
+\series bold 
+pourtout
+\series default 
+
+\newline 
+
+\series bold 
+pour tout
+\series default 
+ ...
+ 
+\series bold 
+faire
+\series default 
+
+\newline 
+boucle infinie
+\newline 
+
+\series bold 
+boucle
+\series default 
+
+\newline 
+
+\series bold 
+boucle
+\series default 
+
+\newline 
+fin boucle
+\newline 
+
+\series bold 
+finboucle
+\series default 
+
+\newline 
+
+\series bold 
+fin boucle
+\series default 
+
+\newline 
+Contexte
+\newline 
+
+\series bold 
+Contexte
+\series default 
+
+\newline 
+
+\series bold 
+Contexte
+\protected_separator 
+:
+\series default 
+
+\newline 
+Vérifier
+\newline 
+
+\series bold 
+Vérifier
+\series default 
+
+\newline 
+
+\series bold 
+Vérifier
+\protected_separator 
+:
+\layout Section
+
+Exemple
+\layout Standard
+
+L'algorithme 
+\begin_inset LatexCommand \ref{alg:exemple}
+
+\end_inset 
+
+ est un exemple d'algorithme en mode français.
+\layout Standard
+
+\begin_float alg 
+\layout Algorithm
+
+Contexte condition de départ
+\layout Algorithm
+
+Vérifier chose à vérifier en sortie
+\layout Algorithm
+
+si cela est vrai
+\begin_deeper 
+\layout Algorithm
+
+* action 1
+\layout Algorithm
+
+pour 10 itérations
+\begin_deeper 
+\layout Algorithm
+
+* action 2
+\end_deeper 
+\layout Algorithm
+
+finpour
+\layout Algorithm
+
+répéter
+\begin_deeper 
+\layout Algorithm
+
+* action 3
+\end_deeper 
+\layout Algorithm
+
+jusqu'à ce que ce soit faux
+\end_deeper 
+\layout Algorithm
+
+sinonsi autre chose
+\begin_deeper 
+\layout Algorithm
+
+tantque ce test est vrai
+\begin_deeper 
+\layout Algorithm
+
+* itération supplémentaire
+\end_deeper 
+\layout Algorithm
+
+fintantque
+\layout Algorithm
+
+pourtout les éléments
+\begin_deeper 
+\layout Algorithm
+
+* action 4
+\end_deeper 
+\layout Algorithm
+
+finpour
+\end_deeper 
+\layout Algorithm
+
+sinon
+\begin_deeper 
+\layout Algorithm
+
+boucle
+\begin_deeper 
+\layout Algorithm
+
+* on reste ici
+\end_deeper 
+\layout Algorithm
+
+finboucle
+\end_deeper 
+\layout Algorithm
+
+finsi
+\layout Caption
+
+
+\begin_inset LatexCommand \label{alg:exemple}
+
+\end_inset 
+
+Algorithme en mode français
+\end_float 
+\the_end
