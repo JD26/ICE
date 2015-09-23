@@ -1,0 +1,3 @@
+GausBackward <- function(A,B) {
+        
+}
